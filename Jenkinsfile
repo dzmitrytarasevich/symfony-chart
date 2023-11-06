@@ -3,7 +3,7 @@ pipeline {
     label 'vm'
   }
   stages {
-    stage('deploy symfony HA') {
+    stage('deploy symfony PROD/HA') {
       when {
         branch 'main'
       }
