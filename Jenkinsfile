@@ -8,7 +8,7 @@ pipeline {
         branch 'main'
       }
       steps {
-        sh "helm upgrade -f ./demo/values-ha.yaml symfony ./demo'
+        sh "helm install -f ./demo/values-ha.yaml symfony ./demo --namespace symfony-prod --create-namespace --wait'
       }
     }
     stage('deploy symfony non PROD') {
@@ -19,7 +19,7 @@ pipeline {
       }
       steps {
         sh """
-         helm upgrade symfony ./demo
+         helm install symfony ./demo --namespace symfony-dev --create-namespace --wait
         """
       }
     }
