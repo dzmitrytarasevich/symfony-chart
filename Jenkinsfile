@@ -9,7 +9,7 @@ pipeline {
       }
       steps {
         sh """
-          helm install -f ./demo/values-ha.yaml symfony ./demo --namespace symfony-prod --create-namespace --wait
+          helm upgrade -f ./demo/values-ha.yaml symfony ./demo --install --namespace symfony-prod --create-namespace --wait
         """
       }
     }
@@ -21,7 +21,7 @@ pipeline {
       }
       steps {
         sh """
-         helm install symfony ./demo --namespace symfony-dev --create-namespace --wait
+         helm upgrade symfony ./demo --install --namespace symfony-dev --create-namespace --wait
         """
       }
     }
