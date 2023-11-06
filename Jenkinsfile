@@ -28,7 +28,7 @@ pipeline {
   }
   post {
     failure {
-      sh "helm rollout symfony"
+      sh "helm rollback symfony"
     }
     always {
       cleanWs()
